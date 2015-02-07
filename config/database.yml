@@ -80,7 +80,7 @@ test:
 #
 production:
   <<: *default
-  url: ENV['DATABASE_URL']
+  url: <%= ENV['DATABASE_URL'] %>
   # database: rw-miles-game_production
   # username: rw-miles-game
   # password: <%= ENV['RW-MILES-GAME_DATABASE_PASSWORD'] %>
