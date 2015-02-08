@@ -8,7 +8,7 @@ class Game < ActiveRecord::Base
     Player.where(team_id: self.teams.ids)
   end
   def current_week
-    self.weeks.find_by(self.current_week_id)
+    self.weeks.find_by_id(self.current_week_id)
   end
 
   def self.current
