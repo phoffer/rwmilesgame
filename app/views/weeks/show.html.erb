@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Game:</strong>
+  <%= @week.game %>
+</p>
+
+<p>
+  <strong>Number:</strong>
+  <%= @week.number %>
+</p>
+
+<p>
+  <strong>Days:</strong>
+  <%= @week.days %>
+</p>
+
+<p>
+  <strong>Count:</strong>
+  <%= @week.count %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @week.status %>
+</p>
+
+<p>
+  <strong>Thread url:</strong>
+  <%= @week.thread_url %>
+</p>
+
+<%= link_to 'Edit', edit_week_path(@week) %> |
+<%= link_to 'Back', weeks_path %>

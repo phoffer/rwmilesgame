@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Current week:</strong>
+  <%= @game.current_week_id %>
+</p>
+
+<p>
+  <strong>Year:</strong>
+  <%= @game.year %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @game.status %>
+</p>
+
+<p>
+  <strong>Closes at:</strong>
+  <%= @game.closes_at %>
+</p>
+
+<p>
+  <strong>Count:</strong>
+  <%= @game.count %>
+</p>
+
+<%= link_to 'Edit', edit_game_path(@game) %> |
+<%= link_to 'Back', games_path %>
