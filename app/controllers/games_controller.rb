@@ -10,6 +10,9 @@ class GamesController < ApplicationController
   # GET /games/1
   # GET /games/1.json
   def show
+    @players = @game.players
+    @teams   = @game.teams
+    @current_week = @game.current_week
   end
 
   # GET /games/new
@@ -64,7 +67,7 @@ class GamesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_game
-      @game = Game.find(params[:id])
+      @game ||= Game.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
