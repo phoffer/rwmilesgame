@@ -4,8 +4,8 @@ class CreatePlayers < ActiveRecord::Migration
       t.references :team, index: true
       t.string :name
       t.string :slug
-      t.integer :status
-      t.boolean :captain
+      t.integer :status,      default: 0
+      t.boolean :captain,     default: false
       t.string :cell_number
       t.string :cell_provider
 

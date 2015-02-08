@@ -5,7 +5,7 @@ class CreatePosts < ActiveRecord::Migration
       t.references :week, index: true
       t.references :score, index: true
       t.float :total
-      t.integer :status
+      t.integer :status,      default: 0
       t.datetime :posted_at
 
       t.timestamps null: false

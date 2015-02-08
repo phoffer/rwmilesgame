@@ -10,7 +10,7 @@ class CreateScores < ActiveRecord::Migration
       t.float :high
       t.float :low
       t.float :avg
-      t.integer :opponent
+      t.integer :opponent_id
 
       t.timestamps null: false
     end

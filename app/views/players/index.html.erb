@@ -19,7 +19,7 @@
   <tbody>
     <% @players.each do |player| %>
       <tr>
-        <td><%= player.team %></td>
+        <td><%= player.team.name %></td>
         <td><%= player.name %></td>
         <td><%= player.slug %></td>
         <td><%= player.status %></td>
