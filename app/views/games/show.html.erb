@@ -1,9 +1,17 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Current week:</strong>
-  <%= @game.current_week_id %>
-</p>
+<% if @game.current_week %>
+  <p>
+    <strong>Current week:</strong>
+    <%= @game.current_week_id %>
+  </p>
+<% elsif @game.status.zero? %>
+  <p>
+    <%= link_to 'Open Game', activate_game_path(@game) %>
+  </p>
+<% elseif @game.status == 2 %>
+  <p>This year is over!</p>
+<% end %>
 
 <p>
   <strong>Year:</strong>
@@ -28,27 +36,29 @@
 <%= link_to 'Edit', edit_game_path(@game) %> |
 <%= link_to 'Back', games_path %>
 
+
 <table>
   <thead>
     <tr>
-      <th>Team</th>
       <th>Name</th>
+      <th>Team</th>
       <th>Slug</th>
-      <th>Status</th>
+      <th>IR</th>
       <th>Captain</th>
       <th>Cell number</th>
       <th>Cell provider</th>
       <th colspan="3"></th>
     </tr>
   </thead>
+
   <tbody>
-    <% @players.each do |player| %>
+    <% @players.order(slug: :asc).each do |player| %>
       <tr>
-        <td><%= player.team.name %></td>
         <td><%= player.name %></td>
+        <td><%= link_to player.team.name, game_team_path(@game, player.team) %></td>
         <td><%= player.slug %></td>
-        <td><%= player.status %></td>
-        <td><%= player.captain %></td>
+        <td><%= player.ir_string %></td>
+        <td><%= player.captain_string %></td>
         <td><%= player.cell_number %></td>
         <td><%= player.cell_provider %></td>
         <td><%= link_to 'Show', player %></td>
@@ -60,4 +70,3 @@
     <% end %>
   </tbody>
 </table>
-

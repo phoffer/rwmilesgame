@@ -12,10 +12,4 @@ class ApplicationController < ActionController::Base
     def authorize
       redirect_to request.referrer unless current_user
     end
-    def current_user
-      true
-    end
-    def current_admin
-      true
-    end
 end

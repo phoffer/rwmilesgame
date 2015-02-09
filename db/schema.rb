@@ -30,6 +30,8 @@ ActiveRecord::Schema.define(version: 20150208021519) do
     t.integer  "team_id"
     t.string   "name"
     t.string   "slug"
+    t.integer  "goal",          default: 0
+    t.float    "total",         default: 0.0
     t.integer  "status",        default: 0
     t.boolean  "captain",       default: false
     t.string   "cell_number"
@@ -77,7 +79,7 @@ ActiveRecord::Schema.define(version: 20150208021519) do
     t.integer  "game_id"
     t.string   "name"
     t.string   "slug"
-    t.integer  "type",          default: 0
+    t.integer  "status",        default: 0
     t.boolean  "allstar_bonus", default: false
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false

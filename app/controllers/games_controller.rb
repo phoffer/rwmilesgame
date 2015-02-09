@@ -15,6 +15,19 @@ class GamesController < ApplicationController
     @current_week = @game.current_week
   end
 
+  def open # set up week 1 for game
+    @game.open
+  end
+  def update_scores
+    if @game.open?
+      @game.update_scores
+      # other stuff like memcached?
+    end
+  end
+  def close # close at the end of the year
+    @game.close
+  end
+
   # GET /games/new
   def new
     @game = Game.new

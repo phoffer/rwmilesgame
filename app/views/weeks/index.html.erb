@@ -10,7 +10,7 @@
       <th>Days</th>
       <th>Count</th>
       <th>Status</th>
-      <th>Thread url</th>
+      <th>Thread Exists?</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -18,12 +18,12 @@
   <tbody>
     <% @weeks.each do |week| %>
       <tr>
-        <td><%= week.game %></td>
+        <td><%= week.game.year %></td>
         <td><%= week.number %></td>
         <td><%= week.days %></td>
         <td><%= week.count %></td>
         <td><%= week.status %></td>
-        <td><%= week.thread_url %></td>
+        <td><%= week.thread_url.present? %></td>
         <td><%= link_to 'Show', week %></td>
         <td><%= link_to 'Edit', edit_week_path(week) %></td>
         <td><%= link_to 'Destroy', week, method: :delete, data: { confirm: 'Are you sure?' } %></td>

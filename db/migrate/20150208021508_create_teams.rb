@@ -4,7 +4,7 @@ class CreateTeams < ActiveRecord::Migration
       t.references :game, index: true
       t.string :name
       t.string :slug
-      t.integer :type,          default: 0
+      t.integer :status,        default: 0
       t.boolean :allstar_bonus, default: false
 
       t.timestamps null: false

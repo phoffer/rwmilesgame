@@ -4,7 +4,7 @@ class TeamsController < ApplicationController
   # GET /teams
   # GET /teams.json
   def index
-    @teams = Team.all
+    @teams = @game.teams.all
   end
 
   # GET /teams/1
@@ -24,7 +24,7 @@ class TeamsController < ApplicationController
   # POST /teams
   # POST /teams.json
   def create
-    @team = Team.new(team_params)
+    @team = @game.teams.new(team_params)
 
     respond_to do |format|
       if @team.save
@@ -64,7 +64,7 @@ class TeamsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_team
-      @team = Team.find(params[:id])
+      @team = @game.teams.find_by_id(params[:id]) || @game.teams.find_by_slug(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

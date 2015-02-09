@@ -4,17 +4,18 @@ class WeeksController < ApplicationController
   # GET /weeks
   # GET /weeks.json
   def index
-    @weeks = Week.all
+    @weeks = @game.weeks.all
   end
 
   # GET /weeks/1
   # GET /weeks/1.json
   def show
+    @scores = @week.scores
   end
 
   # GET /weeks/new
   def new
-    @week = Week.new
+    @week = @game.weeks.new
   end
 
   # GET /weeks/1/edit
@@ -64,7 +65,7 @@ class WeeksController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_week
-      @week = Week.find(params[:id])
+      @week = @game.weeks.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

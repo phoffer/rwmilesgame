@@ -6,6 +6,9 @@
 
 HISTORY.md
 *sublime-*
+.rbenv-vars
+/misc/*
+
 # Ignore bundler config.
 /.bundle
 

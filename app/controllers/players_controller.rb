@@ -10,6 +10,7 @@ class PlayersController < ApplicationController
   # GET /players/1
   # GET /players/1.json
   def show
+    @posts = @player.posts
   end
 
   # GET /players/new
@@ -64,11 +65,11 @@ class PlayersController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_player
-      @player = Player.find(params[:id])
+      @player = @game.players.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def player_params
-      params.require(:player).permit(:team_id, :name, :slug, :status, :captain, :cell_number, :cell_provider)
+      params.require(:player).permit(:team_id, :name, :slug, :total, :goal, :status, :captain, :cell_number, :cell_provider)
     end
 end

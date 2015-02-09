@@ -10,6 +10,11 @@ Rails.application.routes.draw do
   resources :weeks
 
   resources :games do
+    member do
+      get 'open'
+      get 'close'
+      get 'update_scores'
+    end
     resources :players
     resources :teams
     resources :weeks

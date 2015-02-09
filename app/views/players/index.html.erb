@@ -5,10 +5,10 @@
 <table>
   <thead>
     <tr>
-      <th>Team</th>
       <th>Name</th>
+      <th>Team</th>
       <th>Slug</th>
-      <th>Status</th>
+      <th>IR</th>
       <th>Captain</th>
       <th>Cell number</th>
       <th>Cell provider</th>
@@ -17,13 +17,13 @@
   </thead>
 
   <tbody>
-    <% @players.each do |player| %>
+    <% @players.order(slug: :asc).each do |player| %>
       <tr>
-        <td><%= player.team.name %></td>
         <td><%= player.name %></td>
+        <td><%= player.team.name %></td>
         <td><%= player.slug %></td>
-        <td><%= player.status %></td>
-        <td><%= player.captain %></td>
+        <td><%= player.ir_string %></td>
+        <td><%= player.captain_string %></td>
         <td><%= player.cell_number %></td>
         <td><%= player.cell_provider %></td>
         <td><%= link_to 'Show', player %></td>
